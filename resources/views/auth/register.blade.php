@@ -1,77 +1,98 @@
 @extends('layouts.app')
+@section('banner')
+  <section id="inner-banner">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+    <div class="container">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+      <h1>Register Your Account</h1>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
+
+  </section>
+@endsection
+@section('content')
+<!--SIGNUP SECTION START-->
+
+    <section class="signup-section">
+
+      <div class="container">
+
+        <div class="holder">
+
+          <div class="thumb"><img src="images/signup.png" alt="img"></div>
+
+          <form method="POST" action="{{ route('register') }}">
+            {{ csrf_field() }}
+            <div class="input-box"> <i class="fa fa-pencil"></i>
+
+              <input type="text" name="name" value="{{ old('name') }}" placeholder="Nombre">
+
+            </div>
+
+            <div class="input-box"> <i class="fa fa-envelope-o"></i>
+
+              <input type="text" name="email" value="{{ old('email') }}" placeholder="Email">
+
+            </div>
+            <div class="input-box"> <i class="fa fa-unlock"></i>
+
+              <input type="text" name="password" placeholder="Password">
+
+            </div>
+
+            <div class="input-box"> <i class="fa fa-unlock"></i>
+
+              <input type="text" name="password_confirmation" placeholder="Confirm Password">
+
+            </div>
+
+            <div class="select-box">
+
+              <div class="selector">
+
+                <select class="full-width">
+
+                  <option value="1">Select You’re</option>
+
+                  <option value="2">Select You’re</option>
+
+                  <option value="3">02</option>
+
+                  <option value="4">03</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <div class="upload-box">
+
+              <div class="hold"><a href="#">Maximum file size 20 MB</a> <span class="btn-file"> Browse File
+
+                <input type="file">
+
+                </span> </div>
+
+            </div>
+
+            <div class="check-box">
+
+              <input id="id3" type="checkbox" />
+
+              <strong>I’ve read <a href="#">Terms</a> &amp; <a href="#">Conditions</a></strong> </div>
+
+            <input type="submit" value="Sign up">
+
+            <em>Already a Member? <a href="#">LOG IN NOW</a></em>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--SIGNUP SECTION END--> 
 @endsection
