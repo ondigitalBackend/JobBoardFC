@@ -24,19 +24,19 @@
 
         <div class="holder">
 
-          <div class="thumb"><img src="images/signup.png" alt="img"></div>
+          <div class="thumb"><img src="{{ asset('images/signup.png') }}" alt="img"></div>
 
-          <form action="#">
-
+          <form method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
             <div class="input-box"> <i class="fa fa-user"></i>
 
-              <input type="text" placeholder="Username">
+              <input type="text" name="email" placeholder="Email">
 
             </div>
 
             <div class="input-box"> <i class="fa fa-unlock"></i>
 
-              <input type="text" placeholder="Password">
+              <input type="text" name="password" placeholder="Contraseña">
 
             </div>
 
@@ -48,7 +48,7 @@
 
             <input type="submit" value="Sign up">
 
-            <a href="#" class="login">Forgot your Password</a> <b>OR</b>
+            <a href="{{ route('password.request') }}" class="login">¿Olvidaste tu contraseña?</a> <b>OR</b>
 
             <div class="login-social">
 
